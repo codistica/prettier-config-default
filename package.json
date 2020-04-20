@@ -27,15 +27,7 @@
     ],
     "homepage": "https://www.codistica.com",
     "license": "MIT",
-    "main": "./lib/index.js",
-    "module": "./lib-es/index.js",
-    "directories": {
-        "lib": "./lib"
-    },
-    "files": [
-        "lib",
-        "lib-es"
-    ],
+    "main": "./index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/codistica/prettier-config-default.git"
@@ -50,23 +42,9 @@
         "node": ">=10.0.0"
     },
     "scripts": {
-        "babel:lib": "cross-env NODE_ENV=production cross-env NPM_CONFIG_ES_MODULES=false babel ./src --out-dir ./lib --copy-files",
-        "babel:lib-es": "cross-env NODE_ENV=production cross-env NPM_CONFIG_ES_MODULES=true babel ./src --out-dir ./lib-es --copy-files",
-        "build": "yarn run clean && yarn run build:lib && yarn run build:lib-es",
-        "build:lib": "yarn run babel:lib",
-        "build:lib-es": "yarn run babel:lib-es",
-        "clean": "yarn run clean:lib && yarn run clean:lib-es",
-        "clean:lib": "rimraf ./lib",
-        "clean:lib-es": "rimraf ./lib-es",
-        "prepack": "yarn run build",
-        "uninstall": "yarn run clean && rimraf ./node_modules"
+        "uninstall": "rimraf ./node_modules"
     },
     "devDependencies": {
-        "@babel/cli": "^7.8.4",
-        "@babel/core": "^7.9.0",
-        "@babel/preset-env": "^7.9.5",
-        "@comandeer/babel-plugin-banner": "^5.0.0",
-        "cross-env": "^7.0.2",
         "husky": "^4.2.5",
         "rimraf": "^3.0.2"
     }
